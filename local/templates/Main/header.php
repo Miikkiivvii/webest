@@ -1,9 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
-IncludeTemplateLangFile(__FILE__);
-?>
+<?IncludeTemplateLangFile(__FILE__);?>
 <!DOCTYPE HTML>
-<html lang="<?LANGUAGE_ID?>">
+<html lang="<?=LANGUAGE_ID?>">
 <head>
 <?$APPLICATION->ShowHead()?>
 	<title><?$APPLICATION->ShowTitle()?></title>
@@ -27,10 +25,28 @@ IncludeTemplateLangFile(__FILE__);
 				<table>
 					<tr>
 						<td rowspan="2" class="hd_companyname">
-							<h1><a href="">Мебельный магазин</a></h1>
+							<h1><a href=""><?$APPLICATION->IncludeComponent(
+									"bitrix:main.include",
+									"",
+									Array(
+										"AREA_FILE_SHOW" => "file",
+										"AREA_FILE_SUFFIX" => "inc",
+										"PATH" => "/local/templates/Main/components/header-name.php",
+										"EDIT_TEMPLATE" => ""
+									)
+								);?></a></h1>
 						</td>
 						<td rowspan="2" class="hd_txarea">
-							<span class="tel">8 (495) 212-85-06</span>	<br/>	
+							<span class="tel"><?$APPLICATION->IncludeComponent(
+									"bitrix:main.include",
+									"",
+									Array(
+										"AREA_FILE_SHOW" => "file",
+										"AREA_FILE_SUFFIX" => "inc",
+										"EDIT_TEMPLATE" => "",
+										"PATH" => "/local/templates/Main/components/header-phone.php"
+									)
+								);?></span>	<br/>	
 							время работы <span class="workhours">ежедневно с 9-00 до 18-00</span>						
 						</td>
 						<td style="width:232px">
@@ -69,7 +85,7 @@ IncludeTemplateLangFile(__FILE__);
 				<div class="nv_topnav">
 					<ul>
 						<li><a class="menu-img-fon" style="background-image: url(/local/templates/default/images/nv_home.png);" href="/"><span></span></a></li>
-						<li><a href=""><span>Компания</span></a>
+						<li><a href="http://webest-homw3/company.php?clear_cache=Y"><span><?GetMessage('COMPANY')?></span></a>
 							<ul>
 								<li><a href="">Пункт 1</a></li>
 								<li><a href="">Пункт 2</a></li>
